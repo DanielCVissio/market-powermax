@@ -4,7 +4,8 @@ import {Card, CardHeader, CardMedia, CardContent,CardActions, Collapse, IconButt
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { AddShoppingCart } from '@material-ui/icons';
 import accounting from "accounting";
-
+import { actionTypes } from '../reducer';
+import {useStateValue} from '../StateProvider'
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
@@ -19,9 +20,24 @@ const ExpandMore = styled((props) => {
 
 export default function Product({product: {id,name,productType, image, price, rating, description}}) {
   const [expanded, setExpanded] = React.useState(false);
-
+  const [{basket}, dispatch] = useStateValue();
   const handleExpandClick = () => {
     setExpanded(!expanded);
+  };
+
+  const addToBasket=()=>{
+    dispatch({
+      type: actionTypes.ADD_TO_BASKET,
+      item:{
+        id,
+        name,
+        productType,
+        image,
+        price,
+        rating,
+        description
+      }
+    });
   };
 
   return (
@@ -50,7 +66,7 @@ export default function Product({product: {id,name,productType, image, price, ra
       </CardContent>
 
       <CardActions disableSpacing>
-        <IconButton aria-label="add to Cart">
+        <IconButton aria-label="add to Cart" onClick={addToBasket}>
           <AddShoppingCart fontSize='large' />
         </IconButton>
         {/* creamos un arreglo pasamos el rating, o el 4, y lo rellenamos con el codigo de la estrella */}    

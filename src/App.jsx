@@ -1,24 +1,23 @@
-// import CheckoutPage from "./components/CheckoutPage" 
 import Navbar from "./components/Navbar"
-// import { Routes, Route, BrowserRouter } from "react-router-dom"
-// import Product from "./components/Product"
-// import CheckoutPage from "./components/CheckoutPage"
+import CheckoutPage from "./components/CheckoutPage"
 import Products from './components/Products'
+import { BrowserRouter, Route, Routes } from "react-router-dom"
+import SignIn from "./components/SignIn"
+import SignUp from "./components/SignUp"
 
 function App() {
   return (
-    // <BrowserRouter>
+    <BrowserRouter>
       <div className="App">
         <Navbar/>
-        {/* <Routes> */}
-        <Products/>
-        {/* <CheckoutPage/> */}
-        {/* <Product/> */}
-          {/* <Route path='/checkoutpage' element={<CheckoutPage/>}/>  */}
-          {/* <Route path='/' element={<Products/>}/>    */}
-        {/* </Routes> */}
+        <Routes>
+          <Route path='/' element={<Products/>}/>
+          <Route path='/signin' element={<SignIn/>}/>
+          <Route path='/checkoutpage' element={<CheckoutPage/>}/>
+          <Route path='/signup' element={<SignUp/>}/>
+        </Routes>
       </div>
-    // {/* </BrowserRouter> */}
+    </BrowserRouter>
   )
 }
 

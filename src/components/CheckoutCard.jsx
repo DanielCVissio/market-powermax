@@ -3,18 +3,11 @@ import {Card, CardHeader, CardMedia,CardActions, IconButton, Typography  }from '
 import DeleteIcon from '@mui/icons-material/Delete';
 import accounting from "accounting";
 import {makeStyles} from '@material-ui/core/styles'
+import { useStateValue } from '../StateProvider';
+import { actionTypes } from '../reducer';
+
 
 const useStyles = makeStyles((theme)=>({
-    root:{
-        maxWidth:345,
-    },
-    action:{
-        marginTop:'1rem'
-    },
-    media:{
-        height:0,
-        paddingTop:'56.25%'
-    },
     cardActions:{
         display:'flex',
         justifyContent:'space-between',
@@ -29,8 +22,14 @@ const useStyles = makeStyles((theme)=>({
 
 export default function CheckoutCard({product: {id,name,productType, image, price, rating, description}}) {
 
-    const classes = useStyles();
+  const classes = useStyles();
+  const [{basket}, dispatch]= useStateValue();
 
+  const removeItem=()=>dispatch({
+    type: actionTypes.REMOVE_ITEM,
+    id: id,
+  });
+  
   return (
     <Card sx={{ maxWidth: 300 }}>
       <CardHeader
@@ -45,11 +44,7 @@ export default function CheckoutCard({product: {id,name,productType, image, pric
         title={name}
         subheader="in Stock"
       />
-      <CardMedia
-        component="img"
-        height="300"
-        image={image}
-      />
+      <CardMedia component="img" height="300"image={image} title={name}/>
 
       <CardActions disableSpacing className={classes.cardActions}>
         <div className={classes.cardRating}>
@@ -60,9 +55,8 @@ export default function CheckoutCard({product: {id,name,productType, image, pric
             ))}
         </div>
         <IconButton>
-            <DeleteIcon fontSize='large'/>
+            <DeleteIcon fontSize='large' onClick={removeItem}/>
         </IconButton>
-
       </CardActions>
     </Card>
   );
