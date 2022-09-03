@@ -8,8 +8,10 @@ import { Badge} from '@mui/material';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import logo from '../assets/powermax.png';
 import {makeStyles} from '@material-ui/core/styles'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useStateValue } from '../StateProvider';
+import { getAuth, signOut } from 'firebase/auth';
+import { actionTypes } from '../reducer';
 
 const useStyles = makeStyles(theme=>({
   image:{
@@ -25,11 +27,27 @@ const useStyles = makeStyles(theme=>({
   }
 }))
 
-
-
 export default function Navbar() {
   const classes = useStyles();
-  const[{basket},dispatch]=useStateValue();
+  const[{basket, user},dispatch]=useStateValue();
+  const navigate = useNavigate();
+
+  const handleAuth =()=>{
+    const auth = getAuth()
+    if(user){
+      signOut(auth);
+      dispatch({
+        type:actionTypes.EMPTY_BASKET,
+        basket:[],
+      });
+      dispatch({
+        type:actionTypes.SET_USER,
+        user:null,
+      });
+      navigate('/')
+    }
+  }
+
   return (
     <Box className={classes.root}>
       <AppBar position="fixed" style={{backgroundColor:'whitesmoke'}} >
@@ -48,10 +66,12 @@ export default function Navbar() {
 
           <div className={classes.grow}/>
           <Typography variant="h6" sx={{ flexGrow: 1 }}>
-            Hello Daniel Vissio
+            Hello, {user ? user.email : 'Guest'}
           </Typography>
           <Link to='/signin'>
-            <Button variant='outlined' color="secondary"><strong>Sing in</strong></Button>
+            <Button variant='outlined' color="secondary" onClick={handleAuth}>
+              <strong>{user ? 'Sign Out' : 'Sign In'}</strong>
+            </Button>
           </Link>
           <Link to='/checkoutpage'>
             <IconButton aria-label='show cart items' color='inherit'>

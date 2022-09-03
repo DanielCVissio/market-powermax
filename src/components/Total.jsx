@@ -2,6 +2,7 @@ import { Button, makeStyles } from "@material-ui/core";
 import accounting from "accounting";
 import { getBasketTotal } from "../reducer";
 import { useStateValue } from "../StateProvider";
+import {Link as RouteLink} from 'react-router-dom';
 
 const useStyles = makeStyles((theme)=>({
     root:{
@@ -24,7 +25,9 @@ export const Total = () => {
             <h5>Total items: {basket?.length}</h5>
             <h5>{accounting.formatMoney(getBasketTotal(basket))}</h5>
             <Button className={classes.button} variant='contained' color='secundary'>
-                Check Out
+                <RouteLink to='/checkout'>
+                    Check Out
+                </RouteLink>
             </Button>
         </div>
     )

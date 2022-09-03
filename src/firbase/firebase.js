@@ -1,17 +1,25 @@
-import firebase from 'firebase';
+import { initializeApp } from "firebase/app";
+import { getAuth} from 'firebase/auth'
+import { getFirestore} from 'firebase/firestore/lite'
 
+// import firebase from 'firebase'
 
 const firebaseConfig = {
-    apiKey: "AIzaSyBOROTtV-eYAnfNcJ442I22YhofHloCDEM",
-    authDomain: "powermaxmarket-eadc1.firebaseapp.com",
-    projectId: "powermaxmarket-eadc1",
-    storageBucket: "powermaxmarket-eadc1.appspot.com",
-    messagingSenderId: "464084192779",
-    appId: "1:464084192779:web:ecbe18d99f1ee9e4fc410e"
-  };
+  apiKey: "AIzaSyBaElAp2lDJHQAgXUlIUqNjqmHY_ynf48c",
+  authDomain: "powermax-market.firebaseapp.com",
+  projectId: "powermax-market",
+  storageBucket: "powermax-market.appspot.com",
+  messagingSenderId: "371190434252",
+  appId: "1:371190434252:web:638430bf0a05e49289f569"
+};
 
-  const firebaseApp = firebase.initializeApp(firebaseConfig);
+// const firebaseApp = firebase.initializeApp(firebaseConfig);
 
-  const auth= firebase.auth();
+// const auth= firebase.auth();
 
-  export{auth}
+// export {auth}
+export const auth = initializeApp(firebaseConfig);
+
+export const FirebaseAuth = getAuth(auth);
+
+export const FirebaseDB = getFirestore(auth);

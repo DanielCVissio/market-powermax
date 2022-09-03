@@ -3,17 +3,15 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
-import Link from '@mui/material/Link';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import {Link as RouteLink} from 'react-router-dom';
-
+import {Link as RouteLink, Route, useNavigate} from 'react-router-dom';
+import { auth } from '../firbase/firebase';
+import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
 
 const theme = createTheme();
 
@@ -27,14 +25,22 @@ export default function SignUp() {
     });
   };
 
-  const[email, setEmail] = useState('');
-  const[password,setPassword]= useState('');
-  
-  const signup = (e) =>{
+  const[email, setEmail] = useState();
+  const[password,setPassword]= useState();
+  const navigate = useNavigate();
+
+  const signup=(e)=>{
     e.preventDefault();
+    const auth = getAuth()
+    return createUserWithEmailAndPassword(auth, email, password).then((auth)=>{
+      if(auth){
+        navigate('/signin')
+      }
+      console.log(auth);
+    }).catch(err=>alert(err.message))
   }
 
-
+  
   return (
     <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs">
@@ -55,27 +61,7 @@ export default function SignUp() {
           </Typography>
           <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
             <Grid container spacing={2}>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                    autoComplete="given-name"
-                    name="firstName"
-                    required
-                    fullWidth
-                    id="firstName"
-                    label="First Name"
-                    autoFocus
-                />
-              </Grid>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  required
-                  fullWidth
-                  id="lastName"
-                  label="Last Name"
-                  name="lastName"
-                  autoComplete="family-name"
-                />
-              </Grid>
+
               <Grid item xs={12}>
                 <TextField
                     value={email}
@@ -101,12 +87,7 @@ export default function SignUp() {
                     autoComplete="new-password"
                 />
               </Grid>
-              <Grid item xs={12}>
-                <FormControlLabel
-                  control={<Checkbox value="allowExtraEmails" color="primary" />}
-                  label="I want to receive inspiration, marketing promotions and updates via email."
-                />
-              </Grid>
+
             </Grid>
             <Button
               type="submit"
@@ -131,4 +112,4 @@ export default function SignUp() {
   );
 }
 
-// 3:40
+// 4:14
