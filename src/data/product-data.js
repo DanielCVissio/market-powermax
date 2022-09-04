@@ -1,44 +1,87 @@
 const products = [
     {
         id:1,
-        name:'PowerMax 1Lt',
-        productType:'Liquido pinchadura 1lt',
-        price:500,
+        name:'The Batman',
+        productType:'Hot Toys',
+        price:450,
         rating:5,
-        image:"https://alfabetajuega.com/hero/2022/01/dragon-ball-goku-ilustracion-marata.jpg?width=768&aspect_ratio=16:9&format=nowebp",
+        image:"https://cdn.shopify.com/s/files/1/0563/0758/1089/products/batman-and-bat-signal_dc-comics_gallery_622253a5c69e8.jpg?v=1647040703",
         description: 
-            "Liquido tapa pinchaduras de 1 litro Goku "
+            "Collectible figure, from the movie The Batman, Hot toys line, The Batman, fully articulated, accessories included "
     },
     {
         id:2,
-        name:'PowerMax 2Lt',
-        productType:'Liquido pinchadura 2lt',
-        price:900,
+        name:'The Joker',
+        productType:'Hot Toys',
+        price:450,
         rating:1,
-        image:"https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/4805bb10-2561-4f69-b899-a4f774a82de4/de5wfsk-434e6ef2-c164-4d3d-9653-82ca7f43fe87.png/v1/fill/w_1920,h_2560,strp/goku__namek_saga__ssj___1_by_ssjrose890_de5wfsk-fullview.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MjU2MCIsInBhdGgiOiJcL2ZcLzQ4MDViYjEwLTI1NjEtNGY2OS1iODk5LWE0Zjc3NGE4MmRlNFwvZGU1d2Zzay00MzRlNmVmMi1jMTY0LTRkM2QtOTY1My04MmNhN2Y0M2ZlODcucG5nIiwid2lkdGgiOiI8PTE5MjAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.ZHsR3OyPjbRLXDhWxgrzYAXj0uMVztuR7HXRKVs6ghg",
+        image:"https://i.pinimg.com/originals/9d/e5/4c/9de54cf54082c69781c00ec43daf4084.jpg",
         description: 
-            "Liquido tapa pinchaduras de 2 litros Goku ssj"
+            "Collectible figure, from the movie Batman The Dark knight, Hot toys line, The Joker, fully articulated, accessories included"
     },
     {
         id:3,
-        name:'PowerMax 5Lt',
-        productType:'Liquido pinchadura 5lt',
-        price:1800,
+        name:'Son Goku',
+        productType:'SH Figuarts',
+        price:88,
         rating:2,
-        image:"https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/e7bc4f98-aef8-4ec5-9abc-399060998a21/de08gir-775677ec-37ea-4cb9-9ebb-8caeea16f525.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2U3YmM0Zjk4LWFlZjgtNGVjNS05YWJjLTM5OTA2MDk5OGEyMVwvZGUwOGdpci03NzU2NzdlYy0zN2VhLTRjYjktOWViYi04Y2FlZWExNmY1MjUuanBnIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.1oDhfJXQ3q5s1NV7O1SUsSeb5sasQUnfOkIGuD85kuM",
+        image:"https://cdn.shopify.com/s/files/1/0590/8312/9014/products/995845bf-21c4-4dba-87a3-7a792de2733c_1_580x.jpg?v=1659569955",
         description: 
-            "Liquido tapa pinchaduras de 5 litro Goku ssj2"
+            "Collectible figure, Son Goku sh figuart, fully articulated, has interchangeable faces and hands."
     },
     {
         id:4,
-        name:'PowerMax 10Lt',
-        productType:'Liquido pinchadura 10lt',
-        price:3000,
+        name:'Vegeta',
+        productType:'SH Figuarts',
+        price:75,
         rating:5,
-        image:"https://alfabetajuega.com/hero/2018/10/alfabetajuega-dragon-bal-super-saiyan-3-020218.jpg?width=1200&aspect_ratio=1200:631",
+        image:"https://m.media-amazon.com/images/I/61rEn4cJwVL._AC_SL1200_.jpg",
         description: 
-            "Liquido tapa pinchaduras de 10 litro Goku ssj3"
+            "Collectible figure, Vegeta sh figuart, fully articulated, has interchangeable faces and hands."
     },
+    {
+        id:5,
+        name:'DoomsDay',
+        productType:'McFarlane',
+        price:65,
+        rating:5,
+        image:"https://www.thechosenprime.com/assets/images/mcfarlane%20toys/dc%20multiverse/batman%20e1%20and%20superman/mftdcmv-batman-e1-superman-06.jpg",
+        description: 
+            "Collectible figure, Doomsday, articulated, has interchangeable hands and his card."
+    },
+    {
+        id:6,
+        name:'Captain America',
+        productType:'Marvel Legends',
+        price:105,
+        rating:5,
+        image:"https://http2.mlstatic.com/D_NQ_NP_792973-MLA51124591786_082022-O.jpg",
+        description: 
+            "Collectible set, Captain America Sam Wilson and Captain America Steve Rogers."
+    },
+    {
+        id:7,
+        name:'Harry Potter',
+        productType:'Funko Pop',
+        price:75,
+        rating:5,
+        image:"https://http2.mlstatic.com/D_NQ_NP_887637-MLA48532306800_122021-O.webp",
+        description: 
+            "Collectible Funko, Harry Potter."
+    },
+    {
+        id:8,
+        name:'Voldemort',
+        productType:'Funko Pop',
+        price:75,
+        rating:5,
+        image:"https://cf.shopee.com.ar/file/d2678bcd4e7f278c39132a6027a7c0fd",
+        description: 
+            "Collectible Funko, Voldemort and Nagini"
+    },
+
+
+
 ]
 
 export default products;

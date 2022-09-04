@@ -6,7 +6,7 @@ import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import { Badge} from '@mui/material';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import logo from '../assets/powermax.png';
+import logo from '../assets/logo-toys.png';
 import {makeStyles} from '@material-ui/core/styles'
 import { Link, useNavigate } from 'react-router-dom';
 import { useStateValue } from '../StateProvider';
